@@ -1,0 +1,33 @@
+/* Logout Page Styling */
+.logout-container {
+    text-align: center;
+    background: #ffffff;
+    padding: 50px;
+    margin: 100px auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    width: 350px;
+}
+
+.logout-container h2 {
+    color: #333;
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.back-button:hover {
+    background-color: #45a049;
+    transform: scale(1.05); /* Slight hover effect */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}

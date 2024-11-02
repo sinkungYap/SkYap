@@ -1,0 +1,158 @@
+/* Existing CSS */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-in forwards; /* Fade-in effect */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.button {
+    background-color: #9fe2a1;
+    color: white;
+    padding: 20px;
+    margin: 10px;
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Set transition duration and easing */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: none;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    background-color: #4CAF50;
+}
+
+
+
+/* Logout Button in the Top-Right Corner */
+.logout-container {
+    position: absolute;
+    top: 20px;
+    right: 20px; /* Position it at the top-right */
+}
+
+.logout-button {
+    background-color: #758697;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logout-button:hover {
+    background-color: #34495e;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Popup overlay */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.popup-buttons button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Set transition duration and easing */
+}
+
+.popup-buttons button:first-child {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.popup-buttons button:last-child {
+    background-color: #f44336;
+    color: white;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+/* Updated Contact Us Button */
+.contactUs-container {
+    position: absolute;
+    top: 20px;
+    right: 150px; /* Positioned near the logout button */
+}
+
+.contactUs-button {
+    background-color: #5D9CEC; /* Softer blue for distinction */
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover Effect for Contact Us Button */
+.contactUs-button:hover {
+    background-color: #4A89DC; /* Slightly darker shade on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}

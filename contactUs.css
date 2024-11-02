@@ -1,0 +1,317 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+   
+    
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #FFDEE9, #B5FFFC);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 90px;
+    color: #333;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-in forwards; /* Fade-in effect */
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    background-color: linear-gradient(135deg, #36d1dc, #5b86e5);
+   padding: 20px; /* Add padding here instead, if needed */
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* About Us Section */
+.about-us {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.about-us h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.about-us p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Contact Us Section */
+.contact-us h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.contact-info {
+    background-color: #f3f8ff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact-info p {
+    font-size: 16px;
+    color: #555;
+    margin: 5px 0;
+}
+
+.contact-info p strong {
+    color: #007bff;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    color: #555;
+    margin-top: 15px;
+    text-align: left;
+}
+
+input[type="text"],
+input[type="email"],
+
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Set transition duration and easing */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Set transition duration and easing */
+
+}
+
+input[type="email"]:hover,
+input[type="text"]:hover,
+textarea:hover
+ {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Add shadow on hover */
+    border-color: #76dbdb;
+}
+
+
+
+textarea {
+    resize: vertical ;
+}
+
+.home-container {
+    position: absolute;
+    top: 20px;
+    right: 150px; /* Positioned near the logout button */
+}
+
+.home-button {
+    background-color: #758697; /* Softer blue for distinction */
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover Effect for Contact Us Button */
+.home-button:hover {
+    background-color: #34495e; /* Slightly darker shade on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.logout-container {
+    position: absolute;
+    top: 20px;
+    right: 20px; /* Position it at the top-right */
+}
+
+.logout-button {
+    background-color: #758697;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logout-button:hover {
+    background-color: #34495e;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Popup overlay */
+.popup-overlay {
+    position: fixed; /* Fixed position to cover the viewport */
+    top: 0;          /* Align to the top of the viewport */
+    left: 0;         /* Align to the left of the viewport */
+    width: 100%;     /* Full width of the viewport */
+    height: 100%;    /* Full height of the viewport */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    display: flex;   /* Use flexbox to center the content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+/* Popup content */
+.popup-content {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 90%; /* Adjust width as needed */
+    max-width: 400px; /* Max width to limit the size */
+}
+
+/* Popup heading */
+.popup-content h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Popup buttons */
+.popup-buttons {
+    display: flex;
+    justify-content: center; /* Center buttons horizontally */
+    gap: 10px; /* Space between buttons */
+}
+
+.popup-buttons button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Yes button */
+.popup-buttons button:first-child {
+    background-color: #4CAF50; /* Green for Yes */
+    color: white;
+}
+
+.popup-buttons button:first-child:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* No button */
+.popup-buttons button:last-child {
+    background-color: #f44336; /* Red for No */
+    color: white;
+}
+
+.popup-buttons button:last-child:hover {
+    background-color: #e53935; /* Darker red on hover */
+}
+
+/* Additional styles for buttons */
+button {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(1);
+}
+
+
+button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #79c7e5;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+.mailto {
+    position: relative;
+    color: inherit;
+    text-decoration: none; /* Remove default underline */
+}
+
+.mailto:hover {
+    color: #3f67b6;
+}
+
+.mailto::after {
+    content: ""; /* Creates an underline */
+    position: absolute;
+    left: 50%; /* Center align the underline */
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #007bff; /* Set your desired color */
+    transition: width 0.4s ease, left 0.4s ease; /* Smooth animation */
+}
+
+.mailto:hover::after {
+    width: 100%; /* Expands the underline to full width */
+    left: 0; /* Starts the underline from the left */
+}

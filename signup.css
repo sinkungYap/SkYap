@@ -1,0 +1,218 @@
+/* General body styling */
+body {
+    
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-in forwards; /* 2 seconds for the fade-in effect */
+}
+
+/* Container styling */
+.container { 
+    background-color: rgb(251, 252, 252);
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Heading styling */
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Label styling */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* Input fields styling */
+form input[type="email"],
+form input[type="password"] {
+    width: calc(100% - 40px); /* Adjust width to ensure space for the icon */
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; 
+}
+
+/* Placeholder styling */
+input::placeholder {
+    color: rgba(55, 40, 40, 0.496);
+}
+
+/* Red placeholder for empty fields */
+.red-placeholder::placeholder {
+    color: red; /* Placeholder turns red for errors */
+}
+
+/* Focus effects for input fields */
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #76dbdb;
+    box-shadow: 0 0 8px rgba(18, 93, 159, 0.5);
+    transform: scale(1.05);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+input[type="email"]:hover,
+input[type="password"]:hover {
+    transform: scale(1.05); /* Slight grow on hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Add shadow on hover */
+    border-color: #76dbdb;
+}
+
+input[type="submit"] {
+    background: linear-gradient(135deg, #86a8e7, #91eacb); /* Gradient background */
+    color: #1a1a1a;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background: linear-gradient(135deg, #5b86e5, #36d1dc); /* New gradient */
+    transform: scale(1.05);
+}
+
+/* Social signup section */
+.social-signup {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Google button styling */
+.google-button {
+    background-color:#db4437 ;
+    color: white;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.google-button:hover {
+    background-color: #e4a098;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive container */
+@media (max-width: 400px) {
+    .container {
+        width: 90%;
+    }
+}
+
+/* Larger toggle password icon */
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 40%; /* Adjusted to position the icon */
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 24px; /* Larger icon */
+    color: #333;
+}
+
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+/* Styling for the password input fields */
+.password-input {
+    width: calc(100% - 40px); /* Adjust width to ensure space for the icon */
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Ensure input size remains constant */
+input[type="password"] {
+    width: 100%; /* Set to 100% to fill the container */
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.toggle-password-container {
+    pointer-events: auto; /* Ensure the icon is interactive */
+}
+
+/* Styling for invalid input fields */
+input:invalid {
+    border-color: red; /* Change border color to red */
+}
+
+input:focus:invalid {
+    background-color: #ffe6e6; /* Light red background for focused invalid input */
+}
+
+.login-link {
+    margin-top: 20px;
+}
+
+.login-link a {
+    color: linear-gradient(135deg, #86a8e7, #91eacb);
+    font-weight: 600;
+    text-decoration: none;
+    position: relative; /* Set position to allow positioning of ::after */
+}
+
+.login-link a::after {
+    content: ""; /* Creates an underline */
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #2c7be1; /* Set your desired color */
+    transition: width 0.4s ease, left 0.4s ease; /* Smooth animation */
+}
+
+.login-link a:hover::after {
+    width: 100%; /* Expands the underline to full width */
+    left: 0; /* Starts the underline from the center */
+}
+
+
+.login-link a:hover {
+    
+    color: #55bed6;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+

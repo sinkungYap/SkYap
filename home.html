@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="home.css">
+    <script>
+        // Function to display the username
+        function displayWelcomeMessage() {
+            const user = JSON.parse(localStorage.getItem('user')); // Get user data from local storage
+            const welcomeMessage = document.getElementById('welcome-message');
+
+            if (user && user.displayName) {
+                welcomeMessage.textContent = `Welcome, ${user.displayName}!`;
+            } else {
+                welcomeMessage.textContent = "Welcome!";
+            }
+        }
+
+        // Show logout confirmation popup
+        function showLogoutConfirmation() {
+            document.getElementById('logout-popup').style.display = 'block';
+        }
+
+        // Close the logout confirmation popup
+        function closeLogoutPopup() {
+            document.getElementById('logout-popup').style.display = 'none';
+        }
+
+        // Perform logout and redirect to login page
+        function logout() {
+            localStorage.removeItem('user'); // Clear user data from local storage
+            window.location.href = 'login.html'; // Redirect to login page
+        }
+
+        function showContactUs(){
+            window.location.href='contactUs.html';
+        }
+
+        // Run the function when the page loads
+        window.onload = displayWelcomeMessage;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Troubleshooting</h1>
+       
+
+        <!-- Main buttons -->
+        <div class="button-container">
+            <a href="#chapter1" class="button">Chapter 1: Introduction</a>
+            <a href="#chapter2" class="button offset">Chapter 2: Common Issues</a>
+            <a href="#chapter3" class="button">Chapter 3: Solutions</a>
+            <a href="#chapter4" class="button offset">Chapter 4: Advanced Troubleshooting</a>
+            <a href="#chapter5" class="button">Chapter 5: FAQs</a>
+        </div>
+
+        <!-- Logout button (top-right corner) -->
+        <div class="logout-container">
+            <button class="logout-button" onclick="showLogoutConfirmation()">Logout</button>
+        </div>
+
+        <div class="contactUs-container">
+            <button class="contactUs-button" onclick ="showContactUs()"> Contact us </button>
+        </div>
+
+        <!-- Logout confirmation popup -->
+        <div id="logout-popup" class="popup-overlay" style="display: none;">
+            <div class="popup-content">
+                <h2>Confirm Logout</h2>
+                <p>Are you sure you want to logout?</p>
+                <div class="popup-buttons">
+                    <button onclick="logout()">Yes</button>
+                    <button onclick="closeLogoutPopup()">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
