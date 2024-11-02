@@ -24,7 +24,9 @@
             }
         }
 
-        function validateSignup() {
+        function validateSignup(event) {
+            event.preventDefault(); // Prevent form submission
+
             const email = document.getElementById('email').value.trim();
             const password = document.getElementById('password').value;
             const confirmPassword = document.getElementById('confirm-password').value;
@@ -32,40 +34,39 @@
             // Validate email format
             if (!email) {
                 alert('Email is required. Please enter your email!');
-                return false; // Prevent form submission
+                return;
             }
             if (!filterEmail(email)) {
                 alert('Invalid email format. Please enter a valid email!');
-                return false; // Prevent form submission
+                return;
             }
 
             // Check if password is filled
             if (!password) {
                 alert('Password is required. Please enter your password!');
-                return false; // Prevent form submission
+                return;
             }
 
             // Check if confirm password is filled
             if (!confirmPassword) {
                 alert('Please confirm your password.');
-                return false; // Prevent form submission
+                return;
             }
 
             // Check if passwords match
             if (password !== confirmPassword) {
                 alert('Passwords do not match. Please try again!');
-                return false; // Prevent form submission
+                return;
             }
 
             // Check password length
             if (password.length < 8) {
                 alert('Password must be at least 8 characters long.');
-                return false; // Prevent form submission
+                return;
             }
 
             // If all checks pass, redirect to the login page
             window.location.href = "login.html"; // Redirect to login page
-            return true; // Allow the form submission
         }
 
         function filterEmail(email) {
@@ -78,7 +79,7 @@
     <div class="container">
         <h2>Sign Up Form</h2>
         <div id="error-message" style="color: red;"></div>
-        <form onsubmit="return validateSignup()">
+        <form onsubmit="validateSignup(event)">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" placeholder="Enter your email" autocomplete="off" required>
 
