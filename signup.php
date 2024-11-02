@@ -22,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
+    // Check if email is empty
     if (empty($email)) {
         echo "<script>alert('Email is empty. Please enter your email!'); window.history.back();</script>";
         exit();
