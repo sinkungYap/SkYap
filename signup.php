@@ -16,14 +16,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm-password'];
 
+    // Validate email format
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "<script>alert('Invalid email format. Please enter a valid email!'); window.history.back();</script>";
+        exit();
+    }
+
     if (empty($email)) {
-        echo "<script>alert('Email is empty. Please enter your email！'); window.history.back();</script>";
+        echo "<script>alert('Email is empty. Please enter your email!'); window.history.back();</script>";
         exit();
     }
 
     // Check if password and confirm password match
     if ($password !== $confirm_password) {
-        echo "<script>alert('Passwords do not match. Please enter your email！'); window.history.back();</script>";
+        echo "<script>alert('Passwords do not match. Please try again!'); window.history.back();</script>";
+        exit();
+    }
+
+    // Check password length
+    if (strlen($password) < 8) {
+        echo "<script>alert('Password must be at least 8 characters long.'); window.history.back();</script>";
         exit();
     }
 
@@ -52,10 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Execute the prepared statement
     if ($stmt->execute()) {
         // Redirect to the login page after successful sign up
-        echo "<script>
-                alert('Registration successful!');
-                window.location.href = 'login.html';
-              </script>";
+        header('Location: login.html'); // Server-side redirect
         exit();
     } else {
         // Log the error and show a generic error message
