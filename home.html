@@ -34,8 +34,8 @@
             window.location.href = 'login.html'; // Redirect to login page
         }
 
-        function showContactUs(){
-            window.location.href='contactUs.html';
+        function showContactUs() {
+            window.location.href = 'contactUs.html'; // Redirect to the contact us page
         }
 
         // Run the function when the page loads
@@ -44,8 +44,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Troubleshooting</h1>
-       
+        <h1 id="welcome-message">Welcome!</h1> <!-- Dynamic welcome message -->
 
         <!-- Main buttons -->
         <div class="button-container">
@@ -62,7 +61,7 @@
         </div>
 
         <div class="contactUs-container">
-            <button class="contactUs-button" onclick ="showContactUs()"> Contact us </button>
+            <button class="contactUs-button" onclick="showContactUs()">Contact Us</button>
         </div>
 
         <!-- Logout confirmation popup -->
