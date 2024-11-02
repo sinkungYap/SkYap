@@ -25,13 +25,17 @@
         }
 
         function validateSignup() {
-            const email = document.getElementById('email').value;
+            const email = document.getElementById('email').value.trim();
             const password = document.getElementById('password').value;
             const confirmPassword = document.getElementById('confirm-password').value;
 
-            // Check if email is filled
+            // Validate email format
             if (!email) {
                 alert('Email is required. Please enter your email!');
+                return false; // Prevent form submission
+            }
+            if (!filterEmail(email)) {
+                alert('Invalid email format. Please enter a valid email!');
                 return false; // Prevent form submission
             }
 
@@ -53,15 +57,28 @@
                 return false; // Prevent form submission
             }
 
-            return true; // Allow form submission if all checks pass
+            // Check password length
+            if (password.length < 8) {
+                alert('Password must be at least 8 characters long.');
+                return false; // Prevent form submission
+            }
+
+            // If all checks pass, redirect to the login page
+            window.location.href = "login.html"; // Redirect to login page
+            return true; // Allow the form submission
+        }
+
+        function filterEmail(email) {
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailPattern.test(email);
         }
     </script>
 </head>
 <body>
     <div class="container">
         <h2>Sign Up Form</h2>
-        <div id="error-message" style="color: red;"></div> <!-- Error message display -->
-        <form action="signup.php" method="post" onsubmit="return validateSignup()">
+        <div id="error-message" style="color: red;"></div>
+        <form onsubmit="return validateSignup()">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" placeholder="Enter your email" autocomplete="off" required>
 
