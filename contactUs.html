@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
     <link rel="stylesheet" href="contactUs.css">
-</head>
-<body>
-  <script>
-    // Show logout confirmation popup
+    <script>
+        // Show logout confirmation popup
         function showLogoutConfirmation() {
             document.getElementById('logout-popup').style.display = 'block';
         }
@@ -22,28 +20,48 @@
         function logout() {
             localStorage.removeItem('user'); // Clear user data from local storage
             window.location.href = 'login.html'; // Redirect to login page
-        
         }
 
-        function showhome(){
+        function showHome(){
             window.location.href='home.html';
         }
 
-        // Run the function when the page loads
-        window.onload = displayWelcomeMessage;
+        // Validate contact form inputs
+        function validateContactForm() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
 
-        document.getElementById("email-link").addEventListener("click", function() {
-        window.location.href = "mailto:yapnv1008@gmail.com";
-    });
+            if (!name) {
+                alert('Name is required. Please enter your name!');
+                return false;
+            }
+
+            if (!email) {
+                alert('Email is required. Please enter your email!');
+                return false;
+            }
+
+            if (!message) {
+                alert('Message is required. Please enter your message!');
+                return false;
+            }
+
+            alert('Message sent successfully!');
+            // Redirect to home page after successful submission
+            showHome();
+            return true; // Allow form submission if all validations pass
+        }
     </script>
-
-     <!-- Logout button (top-right corner) -->
-     <div class="logout-container">
+</head>
+<body>
+    <!-- Logout button (top-right corner) -->
+    <div class="logout-container">
         <button class="logout-button" onclick="showLogoutConfirmation()">Logout</button>
     </div>
 
     <div class="home-container">
-        <button class="home-button" onclick ="showhome()"> Home </button>
+        <button class="home-button" onclick="showHome()">Home</button>
     </div>
 
     <!-- Logout confirmation popup -->
@@ -59,48 +77,35 @@
     </div>
 
     <div class="container">
-
-        
-
-            
-
         <!-- Contact Us Section -->
         <section class="contact-us">
             <h2>Contact Us</h2>
-
-            <!-- Contact Information Section -->
             <div class="contact-info">
                 <p><strong>Author:</strong> name</p>
                 <p><strong>Email:</strong> <a href="#" class="mailto" onclick="window.location.href='mailto:yapnv1008@gmail.com'">exp@example.com</a></p>
-
                 <p><strong>Phone:</strong> <a href="tel:0182704143" class="mailto">0122344566</a></p>
                 <p>
                     <strong>WhatsApp:</strong>
-                    <a href="https://wa.me/60182704143" class="mailto">Contact the author whatsapps here</a>
+                    <a href="https://wa.me/60182704143" class="mailto">Contact the author via WhatsApp here</a>
                 </p>
-
-                
             </div>
-
             <div>
-                <p> If your have any problem, please fill up the form below!</p>
+                <p>If you have any problems, please fill up the form below!</p>
             </div>
 
-            <form action="contactUs.php" method="POST">
+            <form onsubmit="return validateContactForm()">
                 <label for="name">Name</label>
-                <input type="text" id="name" name="name" autocomplete="off" placeholder="Enter your name"> <br>
-            
+                <input type="text" id="name" name="name" autocomplete="off" placeholder="Enter your name"><br>
+                
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" autocomplete="off" placeholder="Enter your email"> <br>
-            
+                <input type="email" id="email" name="email" autocomplete="off" placeholder="Enter your email"><br>
+                
                 <label for="message">Message</label>
                 <textarea id="message" name="message" rows="5" autocomplete="off" placeholder="Enter your message"></textarea><br>
-            
+                
                 <button type="submit">Send Message</button>
             </form>
         </section>
-
     </div>
-
 </body>
 </html>
